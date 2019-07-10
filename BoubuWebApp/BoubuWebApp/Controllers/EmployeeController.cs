@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BoubuWebApp.Models;
+using BoubuWebApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -43,7 +45,20 @@ namespace BoubuWebApp.Controllers
         {
             // Okの中に返す値を入れる
             // HTTPステータスコード200を返す
-            return Ok(employees);
+            // return Ok(employees);
+
+            using (var db = new EmployeeContext())
+            {
+                var result = db.Employees.Select(x => new SampleViewModel
+                {
+                    Id = x.Id,
+                    Birth = x.Birth,
+                    Name = x.Name,
+                    Test = "取得成功"
+                }).ToList();
+
+                return Ok(result);
+            }
         }
 
         /// <summary>

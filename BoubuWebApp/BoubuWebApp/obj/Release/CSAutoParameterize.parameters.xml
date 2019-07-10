@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="EmployeeContext-Web.config Connection String" description="EmployeeContext データベースに接続するためにアプリケーションによって web.config で使用される接続文字列。" defaultValue="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Employee;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\tsuba\\Documents\\projects\\BoubuWebApp\\BoubuWebApp\\BoubuWebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EmployeeContext']/@connectionString" />
+  </parameter>
+</parameters>
