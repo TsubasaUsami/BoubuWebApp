@@ -81,3 +81,5 @@ C:\Users\tsuba\Documents\projects\BoubuWebApp\BoubuWebApp\BoubuWebApp\obj\Releas
 C:\Users\tsuba\Documents\projects\BoubuWebApp\BoubuWebApp\BoubuWebApp\obj\Release\BoubuWebApp.csproj.CopyComplete
 C:\Users\tsuba\Documents\projects\BoubuWebApp\BoubuWebApp\BoubuWebApp\obj\Release\BoubuWebApp.dll
 C:\Users\tsuba\Documents\projects\BoubuWebApp\BoubuWebApp\BoubuWebApp\obj\Release\BoubuWebApp.pdb
+C:\Users\tsuba\Documents\projects\BoubuWebApp\BoubuWebApp\BoubuWebApp\obj\Release\BoubuWebApp.Migrations.init.resources
+C:\Users\tsuba\Documents\projects\BoubuWebApp\BoubuWebApp\BoubuWebApp\obj\Release\BoubuWebApp.csproj.GenerateResource.cache

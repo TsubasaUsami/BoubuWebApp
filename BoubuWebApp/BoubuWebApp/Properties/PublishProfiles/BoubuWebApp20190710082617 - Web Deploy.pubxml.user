@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+このファイルは、Web プロジェクトの発行 / パッケージ処理で使用されます。この MSBuild ファイルを編集すると、
+この処理の動作をカスタマイズできます。詳細については、https://go.microsoft.com/fwlink/?LinkID=208121 を参照してください。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAADsdANjEqNEK3f+cGl7VPVwAAAAACAAAAAAAQZgAAAAEAACAAAACiBYtq52N/uAnTqJ6Fw9aOFO8VkwfLFpscOM+ZNVIILgAAAAAOgAAAAAIAACAAAACzd32mh8cncr+TVm8w3hGzWN8YdBbv/ry/5fVWzAYTKoAAAADZIsIJHVejKhX0YWcRnTBs191yrKZYOMJqhKcxwXkbfoIVyovNOuESpKhku6pgHrB/drxXL9XH/r5yaXAos+Prz5RF0I7xQ0lXp6reMOu6F5N8i9Vxa6+tIx07yTr+2b6jxvIAzEWhimNlSmu4uohtE2i14jKfQuoHawfgWI2D5kAAAAAHpbPiKA3sC8sCsLEZLwlk89USns4iCP74Kbf+y+ve6W2FJr5ZHDi2qr8NUIf6u89EkWdJSROWgHKGBVhO0ulG</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <AzureDBConnectionStrings Include="Data Source=tcp:boubuwebapp20190710082617dbserver.database.windows.net,1433;Initial Catalog=BoubuWebApp20190710082617_db1;User Id=tsubasa@boubuwebapp20190710082617dbserver;Password=Tu19950428" />
+    <AzureDBConnectionStrings Include="Data Source=tcp:boubuwebapp20190710082617dbserver.database.windows.net,1433;Initial Catalog=BoubuWebApp20190710082617_db;User Id=tsubasa@boubuwebapp20190710082617dbserver;Password=Tu19950428" />
+  </ItemGroup>
+</Project>
