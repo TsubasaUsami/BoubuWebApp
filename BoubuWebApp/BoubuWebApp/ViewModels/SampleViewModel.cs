@@ -17,7 +17,7 @@ namespace BoubuWebApp.ViewModels
         /// <summary>
         /// 年齢
         /// </summary>
-        public DateTime? Birth { get; set; }
+        public string Birth { get; set; }
 
         public string Test { get; set; }
     }

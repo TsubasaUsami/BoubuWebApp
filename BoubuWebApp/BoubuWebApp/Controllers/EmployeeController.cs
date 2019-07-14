@@ -52,7 +52,7 @@ namespace BoubuWebApp.Controllers
                 var result = db.Employees.Select(x => new SampleViewModel
                 {
                     Id = x.Id,
-                    Birth = x.Birth,
+                    Birth = x.Birth.ToString(),
                     Name = x.Name,
                     Test = "取得成功"
                 }).ToList();
@@ -70,21 +70,20 @@ namespace BoubuWebApp.Controllers
         [Route("api/employees/{id}")]
         public IHttpActionResult GetEmployee(int id)
         {
-            Employee result = null;
+           // Employee result = null;
 
-            // 引数のIDに一致したIDを持つEmployeeを探す
-            foreach (Employee employee in employees)
+            using (var db = new EmployeeContext())
             {
-                if (employee.Id == id)
+                var result = db.Employees.Where(x => x.Id == id).Select(x => new SampleViewModel()
                 {
-                    // 一致した場合resultを更新する
-                    result = employee;
-                }
-            }
+                    Id = x.Id,
+                    Birth = x.Birth.ToString(),
+                    Name = x.Name,
+                    Test = "取得成功"
+                });
 
-            // Okの中に返す値を入れる
-            // HTTPステータスコード200を返す
-            return Ok(result);
+                return Ok(result);
+            }
         }
 
         /// <summary>
@@ -94,10 +93,24 @@ namespace BoubuWebApp.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("api/employees/add")]
-        public IHttpActionResult AddEmployee(Employee vm)
+        public IHttpActionResult AddEmployee(SampleViewModel vm)
         {
+            using (var db = new EmployeeContext())
+            {
+                var req = new Models.Employee()
+                {
+                    Id = vm.Id,
+                    Name = vm.Name,
+                    Birth = DateTime.Parse(vm.Birth)
+                };
+
+                db.Employees.Add(req);
+
+                db.SaveChanges();
+            }
+
             // employeesリストに新しい情報を追加する
-            employees.Add(vm);
+            // employees.Add(vm);
             return Ok();
         }
 
@@ -106,23 +119,18 @@ namespace BoubuWebApp.Controllers
         /// </summary>
         /// <param name="vm">更新するEmployee情報</param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPut]
         [Route("api/employees/update")]
-        public IHttpActionResult UpdateEmployee(Employee vm)
+        public IHttpActionResult UpdateEmployee(SampleViewModel vm)
         {
-            // 引数のIDに一致したIDを持つEmployeeを探す
-            foreach (Employee employee in employees)
+            using(var db = new EmployeeContext())
             {
-                if (employee.Id == vm.Id)
-                {
-                    // 一致した場合Employee情報のNameを更新する
-                    employee.Name = vm.Name;
-                }
+                var update = db.Employees.Where(x => x.Id == vm.Id).First();
 
-                if (employee.Name == vm.Name)
-                {
-                    employee.Id = vm.Id;
-                }
+                update.Name = vm.Name;
+                update.Birth = DateTime.Parse(vm.Birth);
+
+                db.SaveChanges();
             }
 
             // Okの中に返す値を入れる
@@ -135,25 +143,34 @@ namespace BoubuWebApp.Controllers
         /// </summary>
         /// <param name="vm">削除するEmployee情報</param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpDelete]
         [Route("api/employees/delete")]
         public IHttpActionResult DeleteEmployee(Employee vm)
         {
-            // 一時保存用の変数を宣言しておく
-            Employee deleteItem = null;
-
-            // 引数のIDに一致したIDを持つEmployeeを探す
-            foreach (Employee employee in employees)
+            using (var db = new EmployeeContext())
             {
-                if (employee.Id == vm.Id)
-                {
-                    // 一致した場合そのIDを持つEmoloyeeを変数に保存する
-                    deleteItem = employee;
-                }
+                var delete = db.Employees.Where(x => x.Id == vm.Id).First();
+
+                db.Employees.Remove(delete);
+
+                db.SaveChanges();
             }
 
-            // 該当のEmployee情報を削除する
-            employees.Remove(deleteItem);
+            // 一時保存用の変数を宣言しておく
+            //Employee deleteItem = null;
+
+            //// 引数のIDに一致したIDを持つEmployeeを探す
+            //foreach (Employee employee in employees)
+            //{
+            //    if (employee.Id == vm.Id)
+            //    {
+            //        // 一致した場合そのIDを持つEmoloyeeを変数に保存する
+            //        deleteItem = employee;
+            //    }
+            //}
+
+            //// 該当のEmployee情報を削除する
+            //employees.Remove(deleteItem);
 
             // Okの中に返す値を入れる
             // HTTPステータスコード200を返す
