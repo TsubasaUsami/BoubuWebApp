@@ -65,7 +65,7 @@ namespace BoubuWebApp.Controllers
         /// URLに書かれたIDを持つEmployeeを取得する
         /// </summary>
         /// <param name="id">ID</param>
-        /// <returns></returns>
+        /// <returns>HTTPコード</returns>
         [HttpGet]
         [Route("api/employees/{id}")]
         public IHttpActionResult GetEmployee(int id)
@@ -90,7 +90,7 @@ namespace BoubuWebApp.Controllers
         /// Bodyに定義したEmployeeを追加する
         /// </summary>
         /// <param name="vm">追加するEmployee情報</param>
-        /// <returns></returns>
+        /// <returns>HTTPコード</returns>
         [HttpPost]
         [Route("api/employees/add")]
         public IHttpActionResult AddEmployee(SampleViewModel vm)
@@ -118,7 +118,7 @@ namespace BoubuWebApp.Controllers
         /// Bodyに定義した情報を更新する
         /// </summary>
         /// <param name="vm">更新するEmployee情報</param>
-        /// <returns></returns>
+        /// <returns>HTTPコード</returns>
         [HttpPut]
         [Route("api/employees/update")]
         public IHttpActionResult UpdateEmployee(SampleViewModel vm)
@@ -142,7 +142,7 @@ namespace BoubuWebApp.Controllers
         /// Bodyに定義した情報を削除する
         /// </summary>
         /// <param name="vm">削除するEmployee情報</param>
-        /// <returns></returns>
+        /// <returns>HTTPコード</returns>
         [HttpDelete]
         [Route("api/employees/delete")]
         public IHttpActionResult DeleteEmployee(Employee vm)
