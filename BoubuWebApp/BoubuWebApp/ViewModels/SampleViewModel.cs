@@ -7,7 +7,7 @@ namespace BoubuWebApp.ViewModels
 {
     public class SampleViewModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// 名前(必須)
@@ -17,7 +17,7 @@ namespace BoubuWebApp.ViewModels
         /// <summary>
         /// 年齢
         /// </summary>
-        public string Birth { get; set; }
+        public DateTime? Birth { get; set; }
 
         public string Test { get; set; }
     }
